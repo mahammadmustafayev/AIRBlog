@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "ixsvJAZJfI+fofLIVXBh40D5uBEr2JdD02FbPOrUPUATpkoTtM+G+lDyHPs7c/5UC2+TxVRaDafcooz8YRsneQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\musta\\OneDrive\\Masaüstü\\AIRTaskBlog\\AIRTaskBlog\\AIRTaskBlog.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\musta\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
