@@ -1,6 +1,7 @@
 ﻿using AIRTaskBlog.Models;
 using AIRTaskBlog;
 using AIRTaskBlog.Utilities;
+using System.Text.Json;
 namespace AIRTaskBlog;
 
 class Program
@@ -10,21 +11,10 @@ class Program
         var directory = Environment.CurrentDirectory;
         string path = Path.Combine(Directory.GetParent(directory).Parent.Parent.FullName, "SolutionItems", "BlogData.json");
 
-        List<Blog> blogList = new List<Blog>();
+        //List<Blog> blogList = new List<Blog>();
+        List<Blog> blogList = await path.ReadBlogsFromJsonFile();
 
-        //Blog blog1 = new Blog("Test", "qwerty", "#twitter");
-        //Blog blog2 = new Blog("Deneme", "asdfg", "#insta");
-        //Blog blog3 = new Blog("Dene", "gfh", "#olk");
-        //blogList.Add(blog1);
-        //blogList.Add(blog2);
-        //blogList.Add(blog3);
-
-        //await blogList.WriteBlogToJsonFile(path);
-
-        //await path.ReadAllBlogFromJsonFile();
-
-        // await path.GetIdBlogFromJsonFile(1);
-        // await path.SearchWordBlogsFromJsonFile("OLK");
+       
         await Console.Out.WriteLineAsync("Xos Gelmisiniz!");
         await Console.Out.WriteLineAsync("Secim Edin!");
         await Console.Out.WriteLineAsync(new string('-',15));
@@ -53,7 +43,16 @@ class Program
                     string content=Console.ReadLine();
                     await Console.Out.WriteLineAsync("Tag daxil edin.");
                     string hashTag=Console.ReadLine();
-                    Blog blog = new Blog(title,content,hashTag);
+                    //Blog blog = new Blog(title,content,hashTag);
+                    Blog blog = new Blog
+                    {
+                        Id=NextId(blogList),
+                        Title = title,
+                        Content = content,
+                        Hashtag = hashTag
+                    };
+                    string data= await File.ReadAllTextAsync(path);
+                    blogList = JsonSerializer.Deserialize<List<Blog>>(data);
                     blogList.Add(blog);
                     await blogList.WriteBlogToJsonFile(path);
                     break;
@@ -79,5 +78,15 @@ class Program
             }
         } while (choise!=5);
     }
-    
+    static int NextId(List<Blog> blogs)
+    {
+        if(blogs.Count == 0) return 1;
+
+        int maxId = 0;
+        foreach (var blog in blogs)
+            if (blog.Id > maxId) maxId = blog.Id;
+        
+        return ++maxId;
+    }
+
 }

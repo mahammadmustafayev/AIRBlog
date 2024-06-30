@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AIRTaskBlog")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+52ce583f2062e0bb9c2e3b1bc3b9720c7eabc874")]
 [assembly: System.Reflection.AssemblyProductAttribute("AIRTaskBlog")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AIRTaskBlog")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

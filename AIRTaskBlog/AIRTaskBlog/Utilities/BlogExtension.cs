@@ -1,32 +1,31 @@
 ﻿using AIRTaskBlog.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
+
 
 namespace AIRTaskBlog.Utilities;
 
 public static class BlogExtension
 {
+    public static async Task<List<Blog>> ReadBlogsFromJsonFile(this string filePath)
+    {
+        if (File.Exists(filePath))
+        {
+            string json = await File.ReadAllTextAsync(filePath);
+            return JsonSerializer.Deserialize<List<Blog>>(json) ?? new List<Blog>();
+        }
+        return new List<Blog>();
+    }
     public static async Task WriteBlogToJsonFile(this List<Blog> blogs,string filePath)
     {
-        var opt = new JsonSerializerOptions
-        {
-            WriteIndented = true
-        };
-        using (FileStream stream= File.Create(filePath))
-        {
-            await JsonSerializer.SerializeAsync(stream, blogs, opt);
-        }
+        string newBlog = JsonSerializer.Serialize(blogs, new JsonSerializerOptions { WriteIndented = true });
+        await File.WriteAllTextAsync(filePath, newBlog);
+
         await Console.Out.WriteLineAsync("Blog completely added");
     }
     public static async Task ReadAllBlogFromJsonFile(this string filePath)
     {
-        string json= await File.ReadAllTextAsync(filePath);
-        List<Blog> blogs= JsonSerializer.Deserialize<List<Blog>>(json);
+        string json = await File.ReadAllTextAsync(filePath);
+        List<Blog> blogs = JsonSerializer.Deserialize<List<Blog>>(json);
         foreach (var blog in blogs)
         {
             await Console.Out.WriteLineAsync($"Id:{blog.Id} Baslıq:{blog.Title}");
@@ -55,7 +54,7 @@ public static class BlogExtension
     {
         string json = await File.ReadAllTextAsync(filePath);
         List<Blog> blogs = JsonSerializer.Deserialize<List<Blog>>(json);
-        var searchBlogs= blogs
+        var searchBlogs = blogs
                 .Where(b => b.Title.Contains(searchWord, StringComparison.OrdinalIgnoreCase) ||
                             b.Content.Contains(searchWord, StringComparison.OrdinalIgnoreCase) ||
                             b.Hashtag.Contains(searchWord, StringComparison.OrdinalIgnoreCase))

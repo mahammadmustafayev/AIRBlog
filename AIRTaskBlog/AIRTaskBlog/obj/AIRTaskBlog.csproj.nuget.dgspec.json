@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\musta\\OneDrive\\Masaüstü\\AIRTaskBlog\\AIRTaskBlog\\AIRTaskBlog.csproj": {}
+    "C:\\Users\\musta\\OneDrive\\Masaüstü\\AIRBlog\\AIRTaskBlog\\AIRTaskBlog\\AIRTaskBlog.csproj": {}
   },
   "projects": {
-    "C:\\Users\\musta\\OneDrive\\Masaüstü\\AIRTaskBlog\\AIRTaskBlog\\AIRTaskBlog.csproj": {
+    "C:\\Users\\musta\\OneDrive\\Masaüstü\\AIRBlog\\AIRTaskBlog\\AIRTaskBlog\\AIRTaskBlog.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\musta\\OneDrive\\Masaüstü\\AIRTaskBlog\\AIRTaskBlog\\AIRTaskBlog.csproj",
+        "projectUniqueName": "C:\\Users\\musta\\OneDrive\\Masaüstü\\AIRBlog\\AIRTaskBlog\\AIRTaskBlog\\AIRTaskBlog.csproj",
         "projectName": "AIRTaskBlog",
-        "projectPath": "C:\\Users\\musta\\OneDrive\\Masaüstü\\AIRTaskBlog\\AIRTaskBlog\\AIRTaskBlog.csproj",
+        "projectPath": "C:\\Users\\musta\\OneDrive\\Masaüstü\\AIRBlog\\AIRTaskBlog\\AIRTaskBlog\\AIRTaskBlog.csproj",
         "packagesPath": "C:\\Users\\musta\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\musta\\OneDrive\\Masaüstü\\AIRTaskBlog\\AIRTaskBlog\\obj\\",
+        "outputPath": "C:\\Users\\musta\\OneDrive\\Masaüstü\\AIRBlog\\AIRTaskBlog\\AIRTaskBlog\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
